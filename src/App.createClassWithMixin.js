@@ -1,7 +1,8 @@
 import React from 'react';
 
-// createClass() was available via the normal React library in the past
+// in the past, createClass() was available via the default React library
 import createClass from 'create-react-class';
+React.createClass = createClass;
 
 function getLocalStorageMixin(localStorageKey) {
   return {
@@ -15,7 +16,7 @@ function getLocalStorageMixin(localStorageKey) {
   };
 }
 
-var App = createClass({
+var App = React.createClass({
   mixins: [getLocalStorageMixin('myValueInLocalStorage')],
 
   componentDidUpdate: function() {
